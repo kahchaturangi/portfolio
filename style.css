@@ -630,16 +630,16 @@ button, input, textarea {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    border: 2px solid var(--color-secondary); /* Glowing Cyan Ring */
+    border: 3px dashed var(--color-secondary); /* Glowing Cyan Dashed Ring */
     box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
-    animation: pulseGlow 4s infinite alternate ease-in-out;
+    animation: spinRing 12s infinite linear;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .about-avatar-wrapper:hover .about-avatar-ring-outer {
     border-color: var(--color-primary);
     box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
-    transform: scale(1.08) rotate(180deg);
+    animation-duration: 6s; /* Spins faster on hover */
 }
 
 .about-avatar-ring-inner {
@@ -647,15 +647,21 @@ button, input, textarea {
     width: 236px;
     height: 236px;
     border-radius: 50%;
-    border: 1px solid rgba(16, 185, 129, 0.6); /* Emerald Green Inner Ring */
+    border: 2px dotted rgba(16, 185, 129, 0.8); /* Emerald Green Dotted Ring */
     box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+    animation: spinRing 15s infinite linear reverse;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .about-avatar-wrapper:hover .about-avatar-ring-inner {
     border-color: var(--color-secondary);
     box-shadow: 0 0 25px rgba(6, 182, 212, 0.5);
-    transform: scale(1.05) rotate(-180deg);
+    animation-duration: 8s; /* Spins faster on hover */
+}
+
+@keyframes spinRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .about-avatar-container {
